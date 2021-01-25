@@ -1,29 +1,25 @@
-import React from 'react';
-import logo from '../assets/svg/logo.svg';
-import '../assets/css/App.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import "../assets/css/ProductListing.css";
+import { Card } from "../components";
+import { FetchProducts } from "../store/action";
 
-function App() {
+export default function ProductListing() {
+  const shoes = useSelector((state) => state.shoes);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(FetchProducts());
+  }, [dispatch]);
+
+  if (!shoes.length) return <h1>Loading...</h1>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        <h1 style={{fontFamily: 'Poppins'}}>
-          TESSSS
-        </h1>
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {shoes.map((el, idx) => (
+        <div className="item" key={idx}>
+          <Card item={el} idx={idx} />
+        </div>
+      ))}
     </div>
   );
 }
-
-export default App;

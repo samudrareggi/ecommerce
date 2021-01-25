@@ -55,18 +55,34 @@ li {
   color: #131212;
 }
 
-.navbar-content ul {
+.navbar-content .nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.navbar-content li {
+.navbar-content .nav li {
   display: inline;
-  padding: 0 10px;
+  padding: 0 20px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
+}
+
+.title-container {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 75px;
+  align-items: center;
+  text-align: center;
 }

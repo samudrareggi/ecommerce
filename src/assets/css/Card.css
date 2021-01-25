@@ -1,0 +1,59 @@
+.card {
+  margin-top: 30px;
+  height: 410px;
+  width: 295px;
+  color: #131212;
+}
+
+.card-image {
+  height: 350px;
+  width: 295px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+
+.card-image :hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-body {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  height: 60px;
+  width: 295px;
+}
+
+.content_c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price_c {
+  margin: 0 !important;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 30px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.image_c {
+  height: 295px;
+  width: 295px;
+  padding: 40px 0 15px 0;
+}
+
+.category_c {
+  margin: 0 !important;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.7);
+}
