@@ -22,6 +22,7 @@ li {
   font-size: 12px;
   line-height: 18px;
   color: #000000;
+  cursor: pointer;
 }
 
 .truck-logo {

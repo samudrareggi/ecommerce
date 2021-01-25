@@ -23,3 +23,12 @@ export function FetchProducts() {
       });
   };
 }
+
+export function addBag(payload) {
+  return (dispatch) => {
+    dispatch({
+      type: "ADD_BAG",
+      payload
+    })
+  }
+}
