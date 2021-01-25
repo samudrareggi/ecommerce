@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../assets/css/Navbar.css";
 import Loading from "./Loading";
+
 export default function Navbar(props) {
   const [svgs, setSvgs] = useState(null);
   const location = useLocation();
+
   useEffect(() => {
     importSvg();
   }, []);
@@ -16,9 +18,12 @@ export default function Navbar(props) {
       return images;
     }, {});
     setSvgs(newSvg);
+    if (!localStorage.getItem("svgs"))
+      localStorage.setItem("svgs", JSON.stringify(newSvg));
   };
 
   if (!svgs) return <Loading />;
+  
   return (
     <>
       <nav className="navbar-top">
@@ -63,7 +68,7 @@ export default function Navbar(props) {
           </ul>
         </div>
         <ul>
-          <li style={{paddingRight: 20}}>
+          <li style={{ paddingRight: 20 }}>
             <img
               src={svgs["./bag.svg"]["default"]}
               className="bag-logo"
