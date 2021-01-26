@@ -1,5 +1,5 @@
 # Getting Started with Nike Store Ecommerce
-Check out the Nike Store Ecommerce [here](https://btcpricetracker.netlify.app/).
+Check out the Nike Store Ecommerce [here](https://nikestore525.netlify.app/).
 ## First of all
 
 ### `npm install` or `yarn install`
