@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchProducts, addBag } from "../store/action";
-import truck from "../assets/svg/truck.svg";
-import rightArrow from "../assets/svg/right.svg";
-import play from "../assets/svg/play.svg";
 import "../assets/css/ProductDetail.css";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import Modal from "react-modal";
+import { Loading } from "../components";
 
 Modal.setAppElement("#root");
 export default function ProductDetail(props) {
@@ -73,7 +71,7 @@ export default function ProductDetail(props) {
     history.push("/checkout");
     unique = true;
   };
-  if (!shoes.length || !svgs) return <h1>Loading...</h1>;
+  if (!shoes.length || !svgs) return <Loading/>;
 
   return (
     <div className="container">
@@ -129,20 +127,20 @@ export default function ProductDetail(props) {
             {Array(4)
               .fill()
               .map((_, idx) => (
-                <img
-                  key={idx}
-                  className="detail-item"
-                  src={svgs[`./shoes/edge/${idx}.svg`]["default"]}
-                  alt="product"
-                  onClick={() =>
-                    setIsOpen({
-                      ...isOpen,
-                      state: true,
-                      id: idx,
-                      name: "image",
-                    })
-                  }
-                />
+                <div key={idx} className="detail-item">
+                  <img
+                    src={svgs[`./shoes/edge/${idx}.svg`]["default"]}
+                    alt="product"
+                    onClick={() =>
+                      setIsOpen({
+                        ...isOpen,
+                        state: true,
+                        id: idx,
+                        name: "image",
+                      })
+                    }
+                  />
+                </div>
               ))}
           </div>
         </div>
@@ -153,7 +151,7 @@ export default function ProductDetail(props) {
           <div className="container-play">
             <div className="btn-play">
               <img
-                src={play}
+                src={svgs["./play.svg"]["default"]}
                 alt="play-button"
                 onClick={() =>
                   setIsOpen({
@@ -219,14 +217,22 @@ export default function ProductDetail(props) {
       <div className="footer">
         <div className="text">
           <span style={{ marginRight: 25 }}>
-            <img src={truck} className="truck-logo" alt="truck-logo" />
+            <img
+              src={svgs["./truck.svg"]["default"]}
+              className="truck-logo"
+              alt="truck-logo"
+            />
           </span>
           FREE SHIPPING OVER $100 PURCHASE
         </div>
         <button className="btn text-btn" onClick={() => onClick()}>
           ADD TO BAG — ${shoes[id]["price"]}
           <span style={{ paddingLeft: 15 }}>
-            <img src={rightArrow} className="arrow-logo" alt="arrow-logo" />
+            <img
+              src={svgs["./right.svg"]["default"]}
+              className="arrow-logo"
+              alt="arrow-logo"
+            />
           </span>
         </button>
       </div>

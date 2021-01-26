@@ -30,7 +30,7 @@ export default function Card(props) {
   return (
     <div className="card">
       <div className="card-image" onClick={() => onClick(idx)}>
-        <img src={svgs[idx]["default"]} className="image_c" alt="product" />
+        <img src={svgs[idx]["default"]} className="image_c" alt=" " />
       </div>
       <div className="card-body">
         <div className="content_c">

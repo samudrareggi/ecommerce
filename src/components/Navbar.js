@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
 import "../assets/css/Navbar.css";
-import Loading from "./Loading";
 
 export default function Navbar(props) {
   const [svgs, setSvgs] = useState(null);
@@ -25,8 +24,6 @@ export default function Navbar(props) {
       localStorage.setItem("svgs", JSON.stringify(newSvg));
   };
 
-  if (!svgs) return <Loading />;
-
   return (
     <>
       <nav className="navbar-top">
@@ -34,18 +31,18 @@ export default function Navbar(props) {
           English
           <span>
             <img
-              src={svgs["./arrow.svg"]["default"]}
+              src={svgs ? svgs["./arrow.svg"]["default"] : null}
               className="arrow-logo"
-              alt="arrow-logo"
+              alt=" "
             />
           </span>
         </div>
         <div className="text" style={{ paddingLeft: 60 }}>
           <span style={{ marginRight: 25 }}>
             <img
-              src={svgs["./truck.svg"]["default"]}
+              src={svgs ? svgs["./truck.svg"]["default"] : null}
               className="truck-logo"
-              alt="truck-logo"
+              alt=" "
             />
           </span>
           FREE SHIPPING OVER $100 PURCHASE
@@ -58,9 +55,9 @@ export default function Navbar(props) {
       </nav>
       <nav className="navbar-content">
         <img
-          src={svgs["./nike.svg"]["default"]}
+          src={svgs ? svgs["./nike.svg"]["default"] : null}
           className="nike-logo"
-          alt="nike-logo"
+          alt=" "
           onClick={() => history.push("/") }
         />
         <div className="nav">
@@ -78,8 +75,8 @@ export default function Navbar(props) {
           <li className="bag-logo" style={{ paddingRight: 20 }}>
             {/* <div className="bag-logo"> */}
               <img
-                src={svgs["./bag.svg"]["default"]}
-                alt="bag-logo"
+                src={svgs ? svgs["./bag.svg"]["default"] : null}
+                alt=" "
                 onClick={() => history.push("/checkout")}
               />
               {
@@ -90,9 +87,9 @@ export default function Navbar(props) {
           </li>
           <li>
             <img
-              src={svgs["./profile.svg"]["default"]}
+              src={svgs ? svgs["./profile.svg"]["default"] : null}
               className="profile-logo"
-              alt="profile-logo"
+              alt=" "
             />
           </li>
         </ul>

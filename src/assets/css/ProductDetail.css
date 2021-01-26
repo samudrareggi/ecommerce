@@ -4,7 +4,7 @@
 }
 
 .container {
-  padding: 0 10%;
+  padding: 0 200px;
   margin-bottom: 62px;
 }
 
@@ -172,6 +172,10 @@
   margin: 0px 20px 25px 0;
   cursor: pointer;
   /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.01), 0 4px 8px rgba(0, 0, 0, 0.06); */
+}
+
+.detail-item :hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
 .modal {

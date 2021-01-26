@@ -4,7 +4,7 @@ import '../assets/css/Loading.css'
 
 export default function Loading(props) {
   return (
-    <div className="container">
+    <div style={{margin: "auto"}}>
       <img src={loading} className="loading" alt="loading" />
     </div>
   );

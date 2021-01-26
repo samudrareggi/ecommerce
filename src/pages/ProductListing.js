@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../assets/css/ProductListing.css";
 import { Card } from "../components";
 import { FetchProducts } from "../store/action";
+import { LoadingSkeleton } from "../components";
 
 export default function ProductListing() {
   const shoes = useSelector((state) => state.shoes);
@@ -11,7 +12,7 @@ export default function ProductListing() {
     dispatch(FetchProducts());
   }, [dispatch]);
 
-  if (!shoes.length) return <h1>Loading...</h1>;
+  if (!shoes.length) return <LoadingSkeleton/>
 
   return (
     <div className="app">

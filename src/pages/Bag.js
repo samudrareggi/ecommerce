@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "../assets/css/Bag.css";
 import { debounce } from "lodash";
 import { addBag } from "../store/action";
+import { Loading } from "../components";
 
 export default function Bag(props) {
   const bags = useSelector((state) => state.bags);
@@ -29,7 +30,7 @@ export default function Bag(props) {
     });
   };
 
-  if (!svgs) return <h1>Loading...</h1>;
+  if (!svgs) return <Loading/>
   return (
     <div className="container">
       <div
