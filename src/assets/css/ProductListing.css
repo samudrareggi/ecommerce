@@ -1,0 +1,13 @@
+.app {
+  padding: 0 200px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 150px;
+}
+
+.item {
+  flex: 1 0 25%; /* explanation below */
+  margin: 20px 0;
+}
