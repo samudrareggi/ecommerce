@@ -1,0 +1,76 @@
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+td {
+  text-align: center;
+  border: none;
+}
+
+.top {
+  background-color: #fafafa;
+  height: 50px;
+}
+
+.row-product {
+  width: 50%;
+}
+
+.row-price {
+  width: 20%;
+}
+
+.row-quantity {
+  width: 15%;
+}
+
+.row-total {
+  width: 15%;
+}
+
+.text-name {
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.text-sc {
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-price {
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.box-quantity {
+  height: 45px;
+  width: 65px;
+  background-color: #fafafa;
+  border: 0px;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.tesss {
+  border-top: 20px solid #fff;
+}

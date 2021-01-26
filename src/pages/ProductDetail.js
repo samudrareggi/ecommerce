@@ -5,12 +5,13 @@ import truck from "../assets/svg/truck.svg";
 import rightArrow from "../assets/svg/right.svg";
 import play from "../assets/svg/play.svg";
 import "../assets/css/ProductDetail.css";
-import { useLocation, useParams } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 export default function ProductDetail(props) {
   const shoes = useSelector((state) => state.shoes);
+  const bags = useSelector((state) => state.bags);
   const [svgs, setSvgs] = useState(null);
   const [isOpen, setIsOpen] = useState({
     state: false,
@@ -24,8 +25,9 @@ export default function ProductDetail(props) {
     id: 0,
   });
   const dispatch = useDispatch();
-  const { id } = useParams();
   const location = useLocation();
+  const history = useHistory();
+  const { id } = useParams();
 
   useEffect(() => {
     const newSvgs = localStorage.getItem("svgs");
@@ -42,14 +44,34 @@ export default function ProductDetail(props) {
   };
 
   const onClick = () => {
+    let unique = true;
+    const temp = [...bags];
     const payload = {
       name: shoes[id].name,
       price: shoes[id].price,
       size: value.size === 0 ? shoes[id].sizes[0] : value.size,
       color: value.color === 0 ? shoes[id].colors[0].color_hash : value.color,
       quantity: 1,
+      image: location.state,
     };
-    dispatch(addBag(payload))
+
+    temp.forEach((el, idx) => {
+      if (
+        el.name === shoes[id].name &&
+        el.size === value.size &&
+        el.color === value.color
+      ) {
+        unique = false;
+        temp[idx].quantity++;
+      }
+    });
+
+    if (unique) temp.push(payload);
+
+    dispatch(addBag(temp));
+
+    history.push("/checkout");
+    unique = true;
   };
   if (!shoes.length || !svgs) return <h1>Loading...</h1>;
 
@@ -201,7 +223,7 @@ export default function ProductDetail(props) {
           </span>
           FREE SHIPPING OVER $100 PURCHASE
         </div>
-        <button className="btn" onClick={() => onClick()}>
+        <button className="btn text-btn" onClick={() => onClick()}>
           ADD TO BAG — ${shoes[id]["price"]}
           <span style={{ paddingLeft: 15 }}>
             <img src={rightArrow} className="arrow-logo" alt="arrow-logo" />

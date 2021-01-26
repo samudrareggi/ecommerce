@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 import "../assets/css/Navbar.css";
 import Loading from "./Loading";
 
 export default function Navbar(props) {
   const [svgs, setSvgs] = useState(null);
+  const bags = useSelector(state => state.bags)
   const location = useLocation();
+  const history = useHistory()
 
   useEffect(() => {
     importSvg();
@@ -23,7 +26,7 @@ export default function Navbar(props) {
   };
 
   if (!svgs) return <Loading />;
-  
+
   return (
     <>
       <nav className="navbar-top">
@@ -58,22 +61,32 @@ export default function Navbar(props) {
           src={svgs["./nike.svg"]["default"]}
           className="nike-logo"
           alt="nike-logo"
+          onClick={() => history.push("/") }
         />
         <div className="nav">
           <ul>
-            <li>New Releases</li>
+            <li style={{position: "relative"}}>
+              New Releases
+              <div className="line"></div>
+            </li>
             <li>Men</li>
             <li>Women</li>
             <li>Customize</li>
           </ul>
         </div>
         <ul>
-          <li style={{ paddingRight: 20 }}>
-            <img
-              src={svgs["./bag.svg"]["default"]}
-              className="bag-logo"
-              alt="bag-logo"
-            />
+          <li className="bag-logo" style={{ paddingRight: 20 }}>
+            {/* <div className="bag-logo"> */}
+              <img
+                src={svgs["./bag.svg"]["default"]}
+                alt="bag-logo"
+                onClick={() => history.push("/checkout")}
+              />
+              {
+                bags.length ? <div className="badge">{bags.length}</div> : null
+              }
+              
+            {/* </div> */}
           </li>
           <li>
             <img
