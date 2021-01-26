@@ -22,6 +22,7 @@ li {
   font-size: 12px;
   line-height: 18px;
   color: #000000;
+  cursor: pointer;
 }
 
 .truck-logo {
@@ -85,4 +86,37 @@ li {
   line-height: 75px;
   align-items: center;
   text-align: center;
+}
+
+.bag-logo {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  right: 7px;
+  background-color: #ff0000;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  font-family: "Marvel", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nike-logo {
+  cursor: pointer;
+}
+
+.line {
+  position: absolute;
+  height: 1px;
+  width: 111px;
+  background-color: black;
+  bottom: -10px;
+  left: 20px;
 }
